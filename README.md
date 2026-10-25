@@ -111,6 +111,18 @@ make test-arm        # 第 2 层：32 位 ARM + qemu-arm（需要 gcc-arm-linux-
 make deploy          # 重新生成平铺部署目录
 ```
 
+> ⚠️ **本仓库是部分上传**：`src/lua-5.4.7/`（上游 Lua 5.4.7 源码）与 `tests/` 不在仓库内，
+> 因此 `make` / `make deploy` 目前无法完整跑通。可用的解释器与**完整部署包**发布在
+> GitHub Release `v1`（资产 `primeLua.hpappdir.zip`，内含 `lua.elf`、`main.py`、
+> `examples/*.lua`、`api.md`）：
+>
+> ```bash
+> gh release download v1 -R nbprime-team/prime-lua -p 'primeLua.hpappdir.zip' -D .
+> unzip -o primeLua.hpappdir.zip      # -> primeLua.hpappdir/，整个目录拷入 C:\DATA\
+> ```
+>
+> `primeLua.hpappdir/` 是构建产物（`make deploy` 生成），**不在仓库中保留副本**。
+
 
 ### 输出是流式的：边跑边显示、ESC 能停
 
